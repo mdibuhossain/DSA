@@ -41,7 +41,7 @@ public:
     {
         if (low == high)
         {
-            seg[low] = val;
+            seg[ind] = val;
             return;
         }
         int mid = (low + high) >> 1;
