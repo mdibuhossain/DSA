@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 
-struct Node
+class Node
 {
+public:
     int data;
-    struct Node *left, *right;
+    Node *left, *right;
 };
 
 Node *newNode(int data)
@@ -15,7 +16,7 @@ Node *newNode(int data)
     return temp;
 }
 
-void printPostorder(struct Node *node)
+void printPostorder(Node *node)
 {
     if (node == NULL)
         return;
@@ -27,7 +28,7 @@ void printPostorder(struct Node *node)
     cout << node->data << " ";
 }
 
-void printInorder(struct Node *node)
+void printInorder(Node *node)
 {
     if (node == NULL)
         return;
@@ -39,7 +40,7 @@ void printInorder(struct Node *node)
     printInorder(node->right);
 }
 
-void printPreorder(struct Node *node)
+void printPreorder(Node *node)
 {
     if (node == NULL)
         return;
@@ -53,7 +54,7 @@ void printPreorder(struct Node *node)
 
 int main()
 {
-    struct Node *root = newNode(1);
+    Node *root = newNode(1);
     root->left = newNode(2);
     root->right = newNode(3);
     root->left->left = newNode(4);
