@@ -17,7 +17,7 @@ public:
             return true;
         return false;
     }
-    void push(int x, Stack **head)
+    void push(Stack **head, int x)
     {
         if ((*head) == NULL)
             (*head) = new Stack();
@@ -69,7 +69,7 @@ int main()
             int x;
             cout << "input: ";
             cin >> x;
-            head->push(x, &head);
+            head->push(&head, x);
             break;
         case 2:
             head->pop(&head);
