@@ -3,3 +3,7 @@
 *.exe
 
 Academic/*.exe
+
+.cph
+
+Academic/.cph
