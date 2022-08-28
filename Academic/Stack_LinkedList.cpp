@@ -70,7 +70,6 @@ int main()
             cout << "input: ";
             cin >> x;
             head->push(x, &head);
-            cout << "=" << head->data << endl;
             break;
         case 2:
             head->pop(&head);
