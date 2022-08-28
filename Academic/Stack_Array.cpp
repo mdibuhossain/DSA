@@ -54,6 +54,7 @@ void display(int ar[])
 
 int main()
 {
+    cout << "Stack size: ";
     cin >> len;
     int stack[len] = {0};
     while (true)
