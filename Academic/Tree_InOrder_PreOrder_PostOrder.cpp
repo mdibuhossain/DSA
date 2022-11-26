@@ -6,13 +6,16 @@ class Node
 public:
     int data;
     Node *left, *right;
+    Node()
+    {
+        left = right = NULL;
+    }
 };
 
 Node *newNode(int data)
 {
     Node *temp = new Node;
     temp->data = data;
-    temp->left = temp->right = NULL;
     return temp;
 }
 
