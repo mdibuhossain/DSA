@@ -7,16 +7,17 @@ void BFS(int start, int visited[], vector<int> adj[])
 {
     queue<int> qu;
     qu.push(start);
+    visited[start] = 1;
     while (!qu.empty())
     {
         int node = qu.front();
-        visited[node] = 1;
         cout << node << " ";
         qu.pop();
         for (auto it : adj[node])
         {
             if (!visited[it])
             {
+                visited[it] = 1;
                 qu.push(it);
             }
         }
