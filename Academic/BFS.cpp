@@ -1,16 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 void BFS(int start, int visited[], vector<int> adj[])
 {
-    visited[start] = 1;
-    cout << start << " ";
-    for (auto it : adj[start])
+    queue<int> qu;
+    qu.push(start);
+    while (!qu.empty())
     {
-        if (!visited[it])
+        int node = qu.front();
+        visited[node] = 1;
+        cout << node << " ";
+        qu.pop();
+        for (auto it : adj[node])
         {
-            BFS(it, visited, adj);
+            if (!visited[it])
+            {
+                qu.push(it);
+            }
         }
     }
 }
