@@ -12,14 +12,13 @@ int minimumSpanningTree(int V, vector<vector<int>> adj[]) {  // vector<vector<in
         pq.pop();
         int node = it.second;
         int wt = it.first;
-
         if (vis[node] == 1) continue;
         vis[node] = 1;
         sum += wt;
         for (auto ii : adj[node]) {
             int adjNode = ii[0];
             int adjWt = ii[1];
-            if (!vis[node]) {
+            if (!vis[adjNode]) {
                 pq.push({adjWt, adjNode});
             }
         }
@@ -28,21 +27,19 @@ int minimumSpanningTree(int V, vector<vector<int>> adj[]) {  // vector<vector<in
 }
 
 int main() {
-    int V = 3;
+    int V = 4;
     vector<vector<int>> adj[V];
 
-    adj[0].push_back({1, 5});
-    adj[1].push_back({0, 5});
-    adj[1].push_back({2, 3});
-    adj[2].push_back({1, 3});
-    adj[0].push_back({2, 1});
-    adj[2].push_back({0, 1});
-
-    // adj[0].push_back({1, 10});
-    // adj[1].push_back({3, 15});
-    // adj[2].push_back({3, 4});
-    // adj[2].push_back({0, 6});
-    // adj[0].push_back({3, 5});
+    adj[0].push_back({1, 10});
+    adj[1].push_back({0, 10});
+    adj[1].push_back({3, 15});
+    adj[3].push_back({1, 15});
+    adj[2].push_back({3, 4});
+    adj[3].push_back({2, 4});
+    adj[2].push_back({0, 6});
+    adj[0].push_back({2, 6});
+    adj[0].push_back({3, 5});
+    adj[3].push_back({0, 5});
 
     // for (auto it : adj) {
     //     for (auto ii : it) {
