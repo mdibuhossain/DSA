@@ -9,16 +9,15 @@ typedef pair<int, int> iPair;
 
 // This class represents a directed graph using
 // adjacency list representation
-class Graph
-{
-    int V; // No. of vertices
+class Graph {
+    int V;  // No. of vertices
 
     // In a weighted graph, we need to store vertex
     // and weight pair for every edge
     list<pair<int, int>> *adj;
 
-public:
-    Graph(int V); // Constructor
+   public:
+    Graph(int V);  // Constructor
 
     // function to add an edge to graph
     void addEdge(int u, int v, int w);
@@ -28,21 +27,18 @@ public:
 };
 
 // Allocates memory for adjacency list
-Graph::Graph(int V)
-{
+Graph::Graph(int V) {
     this->V = V;
     adj = new list<iPair>[V];
 }
 
-void Graph::addEdge(int u, int v, int w)
-{
+void Graph::addEdge(int u, int v, int w) {
     adj[u].push_back(make_pair(v, w));
     adj[v].push_back(make_pair(u, w));
 }
 
 // Prints shortest paths from src to all other vertices
-void Graph::shortestPath(int src)
-{
+void Graph::shortestPath(int src) {
     // Create a priority queue to store vertices that
     // are being preprocessed. This is weird syntax in C++.
     // Refer below link for details of this syntax
@@ -61,8 +57,7 @@ void Graph::shortestPath(int src)
 
     /* Looping till priority queue becomes empty (or all
     distances are not finalized) */
-    while (!pq.empty())
-    {
+    while (!pq.empty()) {
         // The first vertex in pair is the minimum distance
         // vertex, extract it from priority queue.
         // vertex label is stored in second of pair (it
@@ -75,16 +70,14 @@ void Graph::shortestPath(int src)
         // 'i' is used to get all adjacent vertices of a
         // vertex
         list<pair<int, int>>::iterator i;
-        for (i = adj[u].begin(); i != adj[u].end(); ++i)
-        {
+        for (i = adj[u].begin(); i != adj[u].end(); ++i) {
             // Get vertex label and weight of current
             // adjacent of u.
             int v = (*i).first;
             int weight = (*i).second;
 
             // If there is shorted path to v through u.
-            if (dist[v] > dist[u] + weight)
-            {
+            if (dist[v] > dist[u] + weight) {
                 // Updating distance of v
                 dist[v] = dist[u] + weight;
                 pq.push(make_pair(dist[v], v));
@@ -99,8 +92,7 @@ void Graph::shortestPath(int src)
 }
 
 // Driver's code
-int main()
-{
+int main() {
     // create the graph given in above figure
     int V = 9;
     Graph g(V);

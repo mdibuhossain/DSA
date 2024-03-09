@@ -1,22 +1,18 @@
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 using namespace std;
 
-void BFS(int start, int visited[], vector<int> adj[])
-{
+void BFS(int start, int visited[], vector<int> adj[]) {
     queue<int> qu;
     qu.push(start);
     visited[start] = 1;
-    while (!qu.empty())
-    {
+    while (!qu.empty()) {
         int node = qu.front();
         cout << node << " ";
         qu.pop();
-        for (auto it : adj[node])
-        {
-            if (!visited[it])
-            {
+        for (auto it : adj[node]) {
+            if (!visited[it]) {
                 visited[it] = 1;
                 qu.push(it);
             }
@@ -24,8 +20,7 @@ void BFS(int start, int visited[], vector<int> adj[])
     }
 }
 
-int main()
-{
+int main() {
     int edge;
     int start;
     int totalNode;
@@ -34,8 +29,7 @@ int main()
     // input total node number and total connections
     cin >> totalNode >> edge;
     // input connections
-    for (int i = 1; i <= edge; i++)
-    {
+    for (int i = 1; i <= edge; i++) {
         int x, y;
         cin >> x >> y;
         adj[x].push_back(y);

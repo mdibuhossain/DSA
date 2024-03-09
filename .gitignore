@@ -1,9 +1,4 @@
-.vscode
+/**/.vscode
+/**/.cph
 
-*.exe
-
-Academic/*.exe
-
-.cph
-
-Academic/.cph
+/**/*.exe

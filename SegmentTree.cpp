@@ -1,17 +1,13 @@
-class SGTree
-{
+class SGTree {
     vector<int> seg;
 
-public:
-    SGTree(int n)
-    {
+   public:
+    SGTree(int n) {
         seg.resize(4 * n + 1);
     }
 
-    void build(int ind, int low, int high, int ar[])
-    {
-        if (low == high)
-        {
+    void build(int ind, int low, int high, int ar[]) {
+        if (low == high) {
             seg[ind] = ar[low];
             return;
         }
@@ -22,8 +18,7 @@ public:
         seg[ind] = min(seg[2 * ind + 1], seg[2 * ind + 2]);
     }
 
-    int query(int ind, int low, int high, int l, int r)
-    {
+    int query(int ind, int low, int high, int l, int r) {
         if (r < low || high < l)
             return INT_MAX;
 
@@ -37,10 +32,8 @@ public:
         return min(left, right);
     }
 
-    void update(int ind, int low, int high, int id, int val)
-    {
-        if (low == high)
-        {
+    void update(int ind, int low, int high, int id, int val) {
+        if (low == high) {
             seg[ind] = val;
             return;
         }
